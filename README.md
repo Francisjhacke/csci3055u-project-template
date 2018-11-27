@@ -1,7 +1,7 @@
-# _Your project title_
+# _Rust Language Analysis_
 
-- _your name_
-- _your email (uoit.net)_
+- _Francis Hackenberger_
+- _Francis.hackenberger@uoit.net_
 
 ## About the language
 
