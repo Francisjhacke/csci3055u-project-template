@@ -9,7 +9,7 @@ Rust is a systems programming language that was designed with a primary focus on
 for both functional and imperative programming. Its syntax is similar to C++ but it provides better memory safety
 while still maintaining good performance.
 
-Rust was designed by Graydon Hoare at Mozilla Research with the help of many other contributors. Rust's compiler was > released as free and open-source software under both the MIT and Apache licenses. 
+Rust was designed by Graydon Hoare at Mozilla Research with the help of many other contributors. Rust's compiler was released as free and open-source software under both the MIT and Apache licenses. 
 
 Rust provides many interesting tools alongside its safety. For instance:
 - Pattern-matching
