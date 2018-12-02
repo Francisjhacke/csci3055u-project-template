@@ -69,15 +69,57 @@ The standard library is divided into a number of specific modules which all have
  
 ## About open source library
 
-There are many, many open-source projects being contributed under the Rust language umbrella. A particularily interesting one is an implementation of Web Sockets (RFC6455) written in Rust.
+There are many, many open-source projects being contributed under the Rust language umbrella. A particularily interesting and popular one is a web framework for Rust, Rocket.
 
-### Rust-WebSocket
+### Rocket
 
-A framework for dealing with WebSocket connections on both clients and servers. The library is currently in an experimental state, however it provides functionality for normal and secure WebSockets, a message level API that supports fragmentation, a dataframe level API, and the ability to extend and customize its behaviour. 
+Rocket is a web framework for Rust that focuses on ease-of-use, speed, and expressibility. Rocket is extensively documented with an overview, quickstart guide, and robust API documentation. Here is an example of a Rocket app from the official Github repository (https://github.com/SergioBenitez/Rocket)
+
+```rust
+#![feature(proc_macro_hygiene, decl_macro)]
+
+#[macro_use] extern crate rocket;
+
+#[get("/<name>/<age>")]
+fn hello(name: String, age: u8) -> String {
+    format!("Hello, {} year old named {}!", age, name)
+}
+
+fn main() {
+    rocket::ignite().mount("/hello", routes![hello]).launch();
+}
+```
+
+"Visiting localhost:8000/hello/John/58, for example, will trigger the hello route resulting in the string Hello, 58 year old named John! being sent to the browser. If an <age> string was passed in that can't be parsed as a u8, the route won't get called, resulting in a 404 error."
 
 # Analysis of the language
 
-> _Organize your report according to the project description
-document_.
+## Functional vs. Procedural Programming
 
+Rust is a _multi-paradigm_ language, it takes certain aspects from functional and procedural programming languages such as putting emphasis on immutability, but also has unrestricted side effects and mutability. 
+
+## Meta-programming / Macros
+
+## Symbol Resolution & Closure
+
+## Scoping rules
+Rust has a complex scoping system that plays an important role in _ownership_, _borrowing_, and _lifetimes_. In other words they indicate to the compiler when we have valid borrows, free-able resources, and when variables are created or destroyed.
+
+In general, Rust's _lifetimes_ (a contruct the Rust compilers uses to ensure that borrows are valid) follow __lexical scoping__ rules. 
+
+Additionally, Rust enforces RAII (Resource Acquisition Is Initialization), whenever an object goes out of scope, its destructor is called and its _owned_ resources are freed. Variables in Rust don't simply hold data in the stack, they own _resources_. This allows for Rust to protect you from resource leak bugs, essentially preventing memory leaks.
+
+## Functional programming constructs
+
+Rust's inspiration from other existing functional programming languages has been deeply integrated into Rust such as _Closures_ and _Iterators_. Additionally, some of Rusts other features such as _pattern matching_ and _enums_ are influenced by functional programming style.
+
+## Type system
+Rust uses a conventional static type system, meaning it needs to know the types of all variables at _compile_ time. Every variable in Rust has a type and all built-in types are tightly integrated into the language itself. Additionally, by default variables are immutable (You can of course explicitly define variables as mutable using the _mut_ keyword)
+
+## Strengths & Weaknesses
+Rust is an incredible language for those who put performance and safety before all else. Because Rust was designed for systems level programming it comes with system-level performance akin to the level of C and C++. However, due to its powerful type system and concepts behind memory management eradicate any memory leaks or null pointer exceptions! 
+
+On the other hand, Rust is known to have a steep learning curve. It's typed memory management implies a major source of complexity. Rust also introduces alot of new concepts that may take some time to become familiar with. Finally, Rust has a relatively small ecosystem when we compare it to other popular languages such as C++ or C#.  
+
+In short, Rust is perfectly suited for writing robust, reliable, and high performance programs. However, as a start-up language it may feel overwhelming, especially for applications where Rust's level of performance is not necessary.
 
