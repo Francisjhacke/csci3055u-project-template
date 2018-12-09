@@ -24,14 +24,14 @@ fn main(){
     // create a contiguous growable array type
     let mut myVec = vec![];
 
-    // Rust's standard library comes with support for spawning native threads
+    // Rust's standard library comes with support for spawning native threads!
     for _i in 1..10 {
       myVec.push(thread::spawn(|| {my_thread();}));
     }
 
    println!("main() is waiting.");
 
-    // We can wait for the completion of all the child threads by joining
+    // Wait for the completion of all the child threads by joining
    for child in myVec {
       match child.join() {
          Ok(s) => (s),

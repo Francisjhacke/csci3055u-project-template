@@ -13,10 +13,11 @@ Rust was designed by Graydon Hoare at Mozilla Research with the help of many oth
 
 Rust provides many interesting tools alongside its safety. For instance:
 - Pattern-matching
-- Algebraic Datatypes
 - Immunitability by default! (You must explicitly define a variable as _mut_ if you want it to be mutable)
 - Built-in package manager (Cargo)
-- Memory safety is __guaranteed__ without garbage collection.
+- Memory safety is __guaranteed__ without garbage collection
+- The concept of 'ownership' vs 'references/borrowing'
+- Powerful macros
 
 ## About the syntax
 

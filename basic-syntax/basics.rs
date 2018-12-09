@@ -19,7 +19,8 @@ fn main() {
         println!("{} is zero.", n);
     }
 
-    // There are several ways of looping in Rust, here's an example of using for
+    // There are several ways of looping in Rust
+    // here's an example of using for loop
     for a in 0..10 {
         println!("Current value : {}", a);
     }
