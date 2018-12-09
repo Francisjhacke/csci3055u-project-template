@@ -20,6 +20,14 @@ Rust provides many interesting tools alongside its safety. For instance:
 - Powerful macros
 
 ## About the syntax
+Rust syntax provides a strong mix of keywords and symbols that are not too verbose but are also adequately desciptive. 
+
+*Hello World*
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
 
 *Addition function*
 
@@ -46,9 +54,9 @@ Rust has two main terms that relate to its module system: _Crate_ and _Module_ w
 The Rust Standard Library is the foundation of portable Rust software. It offers core types such as __Vec<T>__ and
 __Option<T>__, library-defined operations on language primitives, I/O and multithreading, standard macros, and much more.
 
-The standard library is divided into a number of specific modules which all have names similar to _std::slice_ and _std::cmp_.
+The standard library is divided into a number of specific modules which all have names similar to "std::module_here"
 
-### A few basic Primitives:
+### A Few Basic Primitives:
 - array: A fixed-sized array
 - bool: Boolean type
 - char: Character type
@@ -68,7 +76,7 @@ The standard library is divided into a number of specific modules which all have
 - stringify: Stringifies its arguments
 - format: Creates a string using interpolation of runtime expressions
  
-## About open source library
+## Open Source Library
 
 There are many, many open-source projects being contributed under the Rust language umbrella. A particularily interesting and popular one is a web framework for Rust, Rocket.
 
@@ -91,17 +99,31 @@ fn main() {
 }
 ```
 
-"Visiting localhost:8000/hello/John/58, for example, will trigger the hello route resulting in the string Hello, 58 year old named John! being sent to the browser. If an <age> string was passed in that can't be parsed as a u8, the route won't get called, resulting in a 404 error."
+"Visiting localhost:8000/hello/John/58, for example, will trigger the hello route resulting in the string Hello, 58 year old named John! being sent to the browser. If a string was passed in that can't be parsed the route won't get called, resulting in a 404 error."
 
-# Analysis of the language
+# Analysis
 
 ## Functional vs. Procedural Programming
 
 Rust is a _multi-paradigm_ language, it takes certain aspects from functional and procedural programming languages such as putting emphasis on immutability, but also has unrestricted side effects and mutability. 
 
+Although Rust may not be a "pure" functional programming language, it has taken a signficant influence from functional programming with the inclusion of features such as **iterators** and **closures** allowing for functions to be used as values, passing them in arguments, and returning them from other functions. 
+
 ## Meta-programming / Macros
+Macros are a big part of Rust, fundamentally they introduce a way of writing code that writes other code (metaprogramming). 
+
+In Rust, *Macros* refer to a family of features such as:
+* Declarative macros (with macro_rules!)
+* Procedural macros (Custom, function-like, and attribute-like macros)
+
+Declarative Macros (or macros by example) are the most popular form of Macros in Rust. To be brief, these macros allow you to write things similar to a Rust *match* expression.
+
+Procedural Macros are more similar to functions which accept some code as input and produce some code as output rather than pattern matching and replacing code with other code like declarative macros do.
 
 ## Symbol Resolution & Closure
+Rust has taken much inspiration from functional programming languages and one significant feature is the ability to use functions as values and pass them as arguments. In Rust, *closures* are essentially anonymous functions that you can store in a variable or pass as arguments to other functions. However, closures can also capture values from the scope in which they're defined (unlike functions). 
+
+A quote from the offical Rust documentation: "Mastering closures and iterators is an important part of writing idiomatic, fast Rust code".
 
 ## Scoping rules
 Rust has a complex scoping system that plays an important role in _ownership_, _borrowing_, and _lifetimes_. In other words they indicate to the compiler when we have valid borrows, free-able resources, and when variables are created or destroyed.
